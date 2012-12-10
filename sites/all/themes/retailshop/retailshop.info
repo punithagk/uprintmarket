@@ -1,0 +1,30 @@
+
+name = Retail Shop
+description = Premium Drupal theme by <a href="http://www.uprintmarket.com">www.uprintmarket.com</a>.
+screenshot = screenshot.png
+version = "7.0-1.0"
+core = 7.x
+
+settings[tm_slide_show] = 1
+
+regions[contact_box] = Contact Box
+regions[search_box] = Search Box
+regions[sidebar_right] = Sidebar Left
+regions[content] = Content
+regions[slide_show] = Home Slide Show
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second
+regions[footer_third] = Footer third
+regions[footer_fourth] = Footer fourth
+regions[footer_bottom_left] = Footer Bottom Left
+regions[footer_bottom_right] = Footer Bottom Right
+
+
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/seven.css
+;stylesheets[all][] = seven/seven_style.css
+
+
+
+scripts[] = js/jquery.cycle.all.js
+scripts[] = js/functions.js

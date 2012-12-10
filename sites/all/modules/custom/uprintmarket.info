@@ -1,0 +1,4 @@
+name = UPrintMarket
+description = "UPrintMarket"
+version = "7.x-1.8"
+core = "7.x"

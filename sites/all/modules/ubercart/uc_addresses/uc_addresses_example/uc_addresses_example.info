@@ -1,0 +1,16 @@
+name = Ubercart Addresses Example
+description = "Example module for Ubercart Addresses. Adds extra address fields."
+dependencies[] = uc_order
+dependencies[] = uc_addresses
+package = "Ubercart - extra"
+core = 7.x
+
+; Field handlers
+files[] = handlers/uc_addresses.handlers.inc
+
+; Information added by drupal.org packaging script on 2012-10-11
+version = "7.x-1.0-alpha1"
+core = "7.x"
+project = "uc_addresses"
+datestamp = "1349966514"
+
