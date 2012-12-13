@@ -95,6 +95,57 @@ ul.secondary li.active a.active {
   color: #fff;
   background: #666;
 }
+
+ul.product-top-tabs {
+  float: right; /* LTR */
+  border-bottom: none;
+  text-transform: uppercase;
+  font-size: 0.923em;
+  height: 2.60em;
+  margin-top: -30px;
+  padding-top: 0;  
+}
+ul.product-top-tabs li {
+  float: left; /* LTR */
+  list-style: none;
+  margin: 0 2px;
+}
+ul.product-top-tabs li a:link,
+ul.product-top-tabs li a.active,
+ul.product-top-tabs li a:active,
+ul.product-top-tabs li a:visited,
+ul.product-top-tabs li a:hover,
+ul.product-top-tabs li.active a {
+  display: block;
+  float: left; /* LTR */
+  height: 2.60em;
+  line-height: 2.60em;
+  padding: 0 18px 8px;
+  background-color: #a6a7a2;
+  color: #000;
+  font-weight: bold;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: #a6a7a2;
+  -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  border-radius: 8px 8px 0 0;
+}
+ul.product-top-tabs li.active a,
+ul.product-top-tabs li.active a.active,
+ul.product-top-tabs li.active a:active,
+ul.product-top-tabs li.active a:visited {
+  background-color: #fff;
+  border-color: #c9cac4;
+}
+ul.product-top-tabs li a:hover {
+  color: #fff;
+}
+ul.product-top-tabs li.active a:hover {
+  color: #000;
+}
+
 #content {
   clear: left;
 }
@@ -283,3 +334,66 @@ tr td:last-child {
   border-right: 1px solid #bebfb9; /* LTR */
 }
 
+.getStarted {
+    background: url("../images/gs-arrow.png") no-repeat scroll left top transparent;
+    clear: both;
+    display: block;
+    font-size: 20px;
+    padding: 3px 30px 20px;
+}
+.orderpage-btn-rev1 {
+    float: left;
+    margin-bottom: 20px;
+}
+
+.orderpage-btn-rev1 a {
+    background: url("../images/bg-orderpage-btn-ver4.png") no-repeat scroll left bottom transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 73px;
+    text-decoration: none;
+    width: 372px;
+}
+
+.orderpage-btn-rev1 a .left {
+    height: 80px;
+    width: 86px;
+}
+
+.orderpage-btn-rev1 a .left .orderup {
+    background-position: -6px -12px;
+}
+
+.orderpage-btn-rev1 a .left span {
+    background: url("../images/bg-orderpage-icons.png") no-repeat scroll left top transparent;
+    display: block;
+    height: 80px;
+}
+
+.orderpage-btn-rev1 a .left .orderffr {
+    background-position: -139px -5px;
+}
+
+.orderpage-btn-rev1 a .left span {
+    background: url("../images/bg-orderpage-icons.png") no-repeat scroll left top transparent;
+    display: block;
+    height: 80px;
+}
+
+.orderpage-btn-rev1 a .desc {
+    margin: 0 auto;
+    padding-top: 17px;
+    width: 69%;
+}
+
+.orderpage-btn-rev1 a .desc em {
+    color: #000000;
+    display: block;
+    font-size: 13px;
+    padding-top: 5px;
+}
+
+.bluetext {
+    font-size: 18px;
+}
