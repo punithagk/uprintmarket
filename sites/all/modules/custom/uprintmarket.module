@@ -4,55 +4,33 @@ function uprintmarket_init() {
 	drupal_add_js(drupal_get_path('module', 'uprintmarket') .'/uprintmarket.js');
 }
 
-/*function uprintmarket_form_alter($form_id, &$form){
-
-print_r($form_id);
-if(strpos($form_id, 'uc_product_add_to_cart_form_') !== FALSE ){
-  $form['qty'] = array(
-      '#type' => 'select',
-      '#options' => array('' => t('- select -'), 6 => '6', 12 => '12', 18 => '18', 24 => '24', 30 => '30', 36 => '36'),
-      '#default_value' => 1,
-       '#title' => t('Quantity to add'),
-    );
-  }
-
-}*/
 
 function uprintmarket_form_alter(&$form, $form_state, $form_id) {
   // match on form id
   // This is the small add_to_cart form
   if(strstr($form_id, 'uc_product_add_to_cart_form_')) {
-
-//    if (module_exists('devel')) {
-//      kpr($form);
-//      kpr($node);
-//    }
-//    kpr($form['node']['#value']->field_customqty[0]);
-//    die("here");
-//    $customqty = '1,3,5,10';
-
     $customqty = '';
     if(isset($form['node']['#value']->field_customqty['und'])){
 	$customqty = $form['node']['#value']->field_customqty['und'][0]['value'];
+	$options = explode(',', $customqty);
+    } else {
+	$options = range(1,50);
     }
 
-     if ($form['qty']['#type'] != 'hidden') {
+    if ($form['qty']['#type'] != 'hidden') {
       $form['qty']['#type'] = 'select';
       $form['qty']['#size'] = '1';
       $form['qty']['#multiple'] = FALSE;
-      $form['qty']['#options'] = array(
-          null => t('quantity'),
-        );
-      if ($customqty == '') {
-        foreach(range(1,50) as $i) {
+      $form['qty']['#options'] = array( null => t('quantity'),);
+      $selected = false;
+      foreach($options as $i) {
+         if(!$selected){
+           $form['qty']['#default_value'] = $i;
+           $selected = true;
+         }
          $form['qty']['#options'][$i] = $i;
-        }
-      } else {
-        foreach(explode(',', $customqty) as $i) {
-         $form['qty']['#options'][$i] = $i;
-        }
       }
-     }
+    }
   }
 }
 

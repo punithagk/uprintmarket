@@ -7,8 +7,10 @@ if ($ar1['key']) {
 } else {
   $language = $node->language;
 }
-if (!$page) { 
-  if ($_SESSION['retailshoptaxdisp']) { ?>
+
+if (!$page) {
+
+  if ($_SESSION['retailshoptaxdisp']) {  ?>
   <div class="prd">
     <div class="product-photo"><a href="<?php print $node_url; ?>" title="<?php print $node->field_image[$language][0]['title'] ?>"><?php print theme('image_style', array('style_name' => 'product-image-small-teaser-1', 'path' => $node->field_image[$language][0]['uri'], 'alt' => $node->field_image[$language][0]['alt'], 'title' => $node->field_image[$language][0]['title'], 'attributes' => array(),'getsize' => false) );?></a></div>
     <div class="product-info">
@@ -54,7 +56,33 @@ if (!$page) {
 
 <?php } else { ?>
 <div class="wrap-title-black">
-  <h1 class="nice-title"><?php print $title; ?></h1><div class="list-type"><p><?php if ($ad = render($content['my_additional_field'])) print $ad; else print render($content['sharethis']); ?></p></div>
+  <h1 class="nice-title"><?php print $title; ?></h1><div class="list-type"><p><?php if ($ad = render($content['my_additional_field'])) print $ad; ?></p></div>
+  <div class="secondrow">
+  <div class="wrap-tabs">
+  <!--
+    <div class="tabs">
+      <a id="tab1" href="#" class="active"><?php print t('Features') ?></a>
+      <a id="tab2" href="#"><?php print t('Ideas') ?></a>
+    </div>
+    <div class="wrap-tabs-content">
+      <div id="tab1-content" class="wrap-tab-content">
+        
+      </div>
+      <div id="tab2-content" style="display:none;" class="wrap-tab-content">
+        
+      </div>
+      
+    </div>
+  -->
+	<ul class="tabs product-top-tabs">
+	<li class="active"><a class="active" href="#">Features<span class="element-invisible">(active tab)</span></a></li>
+	<li><a href="#">Ideas</a></li>
+	<li><a href="#">Paper & Specs</a></li>
+	<li><a href="#">Mailing</a></li>
+	<li><a href="#">Templates</a></li>
+	</ul>
+  </div> 
+  </div>
 </div>
 <div id="product-content">
 <div class="firstrow">
@@ -62,21 +90,31 @@ if (!$page) {
     <div class="bigimage">
       <a href="<?php print file_create_url($node->field_image[$language][0]['uri']); ?>" title="<?php print $node->field_image[$language][0]['title'] ?>"><?php print theme('image_style', array('style_name' => 'product-image-big', 'path' => $node->field_image[$language][0]['uri'], 'alt' => $node->field_image[$language][0]['alt'], 'title' => $node->field_image[$language][0]['title'], 'attributes' => array('class' => 'zoom'),'getsize' => false) );?></a>
     </div>
-    <div class="wrap-image-list">
-      <?php unset($node->field_image[$language][0]) ?>
-      <?php if (is_array($node->field_image[$language]) and count($node->field_image[$language])) { ?>
-        <?php foreach ($node->field_image[$language] as $key => $value) { ?>
-          <a href="<?php print file_create_url($value['uri']); ?>"><?php print theme('image_style', array('style_name' => 'product-image-small', 'path' => $value['uri'], 'alt' => $value['alt'], 'title' => $value['title'], 'attributes' => array('class' => 'zoom'),'getsize' => false) );?></a>
-        <?php } ?>
-      <?php } ?>
-    </div>
+    
   </div>
-  <div class="wrap-product-short">
+</div>
+<div class="secondrow">
+  <div class="wrap-special-info">
+		<div class="right">
+			<div class="add-product-cart">
+			  <?php if ($old_price = strip_tags(render($content['field_oldprice']))) { ?>
+				<div class="oldprice"><div class="l"><?php print t('Was') ?>:</div><div class="r"><?php print theme('uc_price', array('price' => $old_price)); ?></div></div>
+				<div class="oldprice"><div class="l"><?php print t('Client savings') ?>:</div><div class="r"><?php print theme('uc_price', array('price' => $old_price - $content['display_price']['#value'])) ?></div></div>
+			  <?php } ?>
+			  
+			  <?php print render($content['add_to_cart']) ?>
+			  <div class="currentprice"><div class="l"><?php print t('Total price') ?>:</div><div class="r"><?php print strip_tags(render($content['display_price'])) ?></div></div>
+			</div>
+		</div>
+  </div>
+  <div class="wrap-product-short" >
+	
     <h2><?php print $title; ?></h2>
     <h3><?php print strip_tags(render($content['field_model'])) ?></h3>
     <div class="summary"><?php print render($content['field_shortdescription']) ?></div>
     <div class="wrap-special-info">
       <div class="left">
+		<p><?php print t('Share') ?>: <span><?php print render($content['sharethis']);?></span></p>
         <p><?php print t('Customer reviews') ?>:</p>
         <div class="wrap-rating">
           <?php print render($content['rate_voting']) ?>
@@ -87,19 +125,29 @@ if (!$page) {
           <p><?php print t('Reviews (!count)', array('!count' => $node->comment_count)) ?></p>
         <?php } ?>
         <p><a href="<?php print url('comment/reply/'.$node->nid/*, array('fragment' => 'comment-form')*/) ?>"><?php print t('Add a review') ?></a></p>
-        <p class="dotted"><?php print t('Availability') ?>: <span><?php print strip_tags(render($content['field_availability'])) ?></span></p>
-        <p><?php print t('Delivery') ?>: <span><?php print strip_tags(render($content['field_delivery'])) ?></span></p>
       </div>
-      <div class="right">
-        <div class="add-product-cart">
-          <?php if ($old_price = strip_tags(render($content['field_oldprice']))) { ?>
-            <div class="oldprice"><div class="l"><?php print t('Was') ?>:</div><div class="r"><?php print theme('uc_price', array('price' => $old_price)); ?></div></div>
-            <div class="oldprice"><div class="l"><?php print t('Client savings') ?>:</div><div class="r"><?php print theme('uc_price', array('price' => $old_price - $content['display_price']['#value'])) ?></div></div>
-          <?php } ?>
-          <div class="currentprice"><div class="l"><?php print t('Total price') ?>:</div><div class="r"><?php print strip_tags(render($content['display_price'])) ?></div></div>
-          <?php print render($content['add_to_cart']) ?>
-        </div>
-      </div>
+	  <div class="right">
+		<div class="orderpage-all-btn">           
+		<!-- Start Design/Banner Tool -->
+		<strong class="getStarted"> Get Started</strong>
+		<div>
+		<div class="orderpage-btn-rev1">				
+		<a onclick="submitOrderSpecs('j',44,0)" rel="nofollow">	                     
+		<span class="left"><span class="orderup">&nbsp;</span></span>		
+		<span class="desc"> <span class="bluetext">Upload Your File &amp; Order Now</span> <em>Configure and select proof options.</em> </span>	
+		</a>                
+		</div>
+		<div class="orderpage-btn-rev1">				
+		<a onclick="submitOrderSpecs('p',44,0)" rel="nofollow"> 
+		<span class="left"><span class="orderffr">&nbsp;</span></span>
+		<span class="desc"> <span class="bluetext">Start with a FREE Proof</span> <em>Get file review. No credit card required.</em> </span>
+		</a>                
+		</div>
+		</div>
+		<!-- End PO/FFR Button -->  
+		<span><a onclick="parent.jQuery.colorbox({width:&quot;500px&quot;, height:&quot;450px&quot;, iframe:true, scrolling:false, href:&quot;/live-chat.html&quot;});"><span style="width:150px;">Need Help Ordering?</span></a></span>                       
+		</div>
+	  </div>
     </div>
   </div>
 </div>

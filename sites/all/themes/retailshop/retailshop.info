@@ -21,7 +21,7 @@ regions[footer_bottom_right] = Footer Bottom Right
 
 
 stylesheets[all][] = css/style.css
-stylesheets[all][] = css/seven.css
+stylesheets[all][] = css/uprintmarket.css
 ;stylesheets[all][] = seven/seven_style.css
 
 
