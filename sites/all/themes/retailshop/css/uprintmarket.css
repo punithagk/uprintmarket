@@ -353,41 +353,41 @@ tr td:last-child {
     float: left;
     height: 73px;
     text-decoration: none;
-    width: 372px;
+    width: 230px;
 }
 
-.orderpage-btn-rev1 a .left {
+.orderpage-btn-rev1 a .desc-left {
     height: 80px;
     width: 86px;
 }
 
-.orderpage-btn-rev1 a .left .orderup {
+.orderpage-btn-rev1 a .desc-right {
+    height: 80px;
+    width: 86px;
+}
+
+.orderpage-btn-rev1 a .desc-left .orderup {
     background-position: -6px -12px;
 }
 
-.orderpage-btn-rev1 a .left span {
+.orderpage-btn-rev1 a .desc-left span {
     background: url("../images/bg-orderpage-icons.png") no-repeat scroll left top transparent;
     display: block;
     height: 80px;
+	width: 80px;
 }
 
-.orderpage-btn-rev1 a .left .orderffr {
+.orderpage-btn-rev1 a .desc-left .orderffr {
     background-position: -139px -5px;
 }
 
-.orderpage-btn-rev1 a .left span {
-    background: url("../images/bg-orderpage-icons.png") no-repeat scroll left top transparent;
-    display: block;
-    height: 80px;
-}
-
-.orderpage-btn-rev1 a .desc {
+.orderpage-btn-rev1 a .desc-right span{
     margin: 0 auto;
     padding-top: 17px;
     width: 69%;
 }
 
-.orderpage-btn-rev1 a .desc em {
+.orderpage-btn-rev1 a .desc-right em {
     color: #000000;
     display: block;
     font-size: 13px;
@@ -396,4 +396,5 @@ tr td:last-child {
 
 .bluetext {
     font-size: 18px;
+	margin-top: 30px;
 }

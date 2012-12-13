@@ -75,11 +75,11 @@ if (!$page) {
     </div>
   -->
 	<ul class="tabs product-top-tabs">
-	<li class="active"><a class="active" href="#">Features<span class="element-invisible">(active tab)</span></a></li>
-	<li><a href="#">Ideas</a></li>
-	<li><a href="#">Paper & Specs</a></li>
-	<li><a href="#">Mailing</a></li>
-	<li><a href="#">Templates</a></li>
+		<li class="active"><a class="active" href="#">Features<span class="element-invisible">(active tab)</span></a></li>
+		<li><a href="#">Ideas</a></li>
+		<li><a href="#">Paper & Specs</a></li>
+		<li><a href="#">Mailing</a></li>
+		<li><a href="#">Templates</a></li>
 	</ul>
   </div> 
   </div>
@@ -133,14 +133,14 @@ if (!$page) {
 		<div>
 		<div class="orderpage-btn-rev1">				
 		<a onclick="submitOrderSpecs('j',44,0)" rel="nofollow">	                     
-		<span class="left"><span class="orderup">&nbsp;</span></span>		
-		<span class="desc"> <span class="bluetext">Upload Your File &amp; Order Now</span> <em>Configure and select proof options.</em> </span>	
+		<span class="desc-left"><span class="orderup">&nbsp;</span></span>		
+		<span class="desc-right"> <span class="bluetext">Upload Your File</span> <em>Configure and select proof options.</em> </span>	
 		</a>                
 		</div>
 		<div class="orderpage-btn-rev1">				
 		<a onclick="submitOrderSpecs('p',44,0)" rel="nofollow"> 
-		<span class="left"><span class="orderffr">&nbsp;</span></span>
-		<span class="desc"> <span class="bluetext">Start with a FREE Proof</span> <em>Get file review. No credit card required.</em> </span>
+		<span class="desc-left"><span class="orderffr">&nbsp;</span></span>
+		<span class="desc-right"> <span class="bluetext">FREE Proof</span> <em>Get file review. No credit card required.</em> </span>
 		</a>                
 		</div>
 		</div>
